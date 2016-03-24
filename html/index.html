@@ -1,26 +1,35 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>Corey Greenwald Guessing Game.</title>
-	<link rel="stylesheet" type="text/css" href = "../css/main.css">
-	<link rel="stylesheet" type="text/css" href = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-</head>
+	<head>
+		<title>Corey Greenwald Guessing Game.</title>
+		<link rel="stylesheet" type="text/css" href = "../css/main.css">
+		<link rel="stylesheet" type="text/css" href = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	</head>
 
-<body class = 'container'>
+	<body class = 'container'>
 
-	<section id = "header">
-		<h1 id = "mainh">Guess a Number!</h1>
-		<h2> Pick a number between 1 and 100. </h2>
-	</section>
-	<section id = "body1">
-				<input class = "value" placeholder = "Input a Number" id = "val"> 
-				<button class = "button"> Check My Guess!</button> 
-				<label for = "val">X Guesses Remaining</label>
-	</section>
-	<section id = "body2">
-				<button class = "button"> Play Again</button> 
-				<button class = "button"> Give a Guess -- Get a Hint</button> 
-
-	</section>
-</body>
+		<section id = "header">
+			<h1 id = "mainh">Guess a Number!</h1>
+			<h2 id = 'secondh'> Pick a number between 1 and 100. </h2>
+			<img src = "../images/dice.gif">
+		</section>
+		<section id = "body1">
+			<div class = 'col-xs-6'>
+				<input class = "value" placeholder = "Input a Number" id = "val"> </div>
+			<div class = 'col-xs-6'>
+				<button class = "button"> Check My Guess!</button> </div>
+			<div >
+				<label id = "val">X Guesses Remaining</label> </div>
+		</section>
+		<section id = "body2">
+			<div class = 'col-xs-6'>
+					<button class = "button"> Play Again</button>  </div>
+			<div class = 'col-xs-6'>
+					<button class = "button"> Give a Guess -- Get a Hint</button> 
+			</div>
+			<div>
+				<a href= "mailto:coreygreen1108@gmail.com?Subject=Game%20Feedback"> Give Feedback! </a>
+			</div>
+		</section>
+	</body>
 </html>
