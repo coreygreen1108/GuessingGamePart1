@@ -36,6 +36,8 @@
 	background-color: #333333;
 	border: 4px black solid;
 	font-family: Impact, Charcoal, sans-serif;
+	text-align: center;
+	height: 200px;
 }
 
 #body2 {
@@ -67,7 +69,7 @@ a:link{
 	color:white;
 }
 
-.value {
+#val {
 	margin: 10px auto 10px auto;
 	height: 50px;
 	width: 300px;
@@ -77,12 +79,12 @@ a:link{
 .button {
      margin: 10px auto 10px auto;
 	 height: 50px;
-	 width: 300px;
+	 width: 275px;
 	 background: #555555;
 
 	 color: #FFBB33;
 	 text-align: center;
-	 font: bold 2.0em/35px Impact, Charcoal, sans-serif;
+	 font: bold 1.8em Impact, Charcoal, sans-serif;
 
 	 /* looked up how to make circular buttons */
 	 -webkit-border-radius: 100px;
