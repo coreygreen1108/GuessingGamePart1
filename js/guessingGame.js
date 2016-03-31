@@ -4,8 +4,11 @@ $( document ).ready(function() {
 	var guessesRemaining = 5;
 	var gameWin = false; 
 
-	$('#body1').on('click','button', playersGuessSubmission); 
-	$('#body2').find('button').on('click', playAgain);
+	$('#hint').on('click', provideHint);
+	$('#check').on('click', playersGuessSubmission); 
+	$('#body2').on('click','button', playAgain); 
+	
+
 
 	function generateWinningNumber(){
 		return (Math.round(Math.random() * 99) + 1);
@@ -26,11 +29,12 @@ $( document ).ready(function() {
 				playAgain();
 			}
 			else {
-				$('#body1').find('label').text(lowerOrHigher(playerGuess) + "   You have " + guessesRemaining + " guesses remaining.");
+				$('#body1').find('#gameInfo').text(lowerOrHigher(playerGuess));
+				$('#body1').find('#guessesRemain').text("You have " + guessesRemaining + " guesses remaining.");
 			}
 		}
 		if (guessesRemaining === 0) {
-			$('#body1').find('label').text("Sorry out of guesses! The answer was: " + winningNumber + ". Click play again to play.");
+			$('#body1').find('#gameInfo').text("Sorry out of guesses! The answer was: " + winningNumber + ". Click play again to play.");
 		}
 	}
 
@@ -52,38 +56,48 @@ $( document ).ready(function() {
 		}
 	}
 
+	function provideHint(){
+		if (guessesRemaining === 5)  {
+		$('#body1').find('#gameInfo').text("Your first guess can't be a hint!");
+		}
+		else if(guessesRemaining <= 4 && guessesRemaining > 0) {
+		var arr = [];
+		for(var i = 0; i <= 3; i++){
+			arr.push(Math.round(Math.random() * 99) + 1);
+		}
+		var temp = Math.round(Math.random() * 2) + 1;
+		arr.splice(temp, temp - 1, winningNumber);
+		//arr.splice(temp,temp - 1,winningNumber);
+		$('#body1').find('#gameInfo').text("The answer is one of these numbers: " + arr);
+		}
+		else if (guessesRemaining === 1){
+		$('#body1').find('#gameInfo').text("You can't use your last guess on a hint!");
+		}
+		else {
+		$('#body1').find('#gameInfo').text("Sorry you have no more guesses to give!");
+		}
+		//$('#body1').find('#guessesRemain').text("You have " + guessesRemaining + " WOOOOT remaining.");
+
+		//if(guessesRemaining > 0) {
+			//guessesRemaining--;
+			//var arr = [1 , 2, 3, 4, 5];
+			/*for(var i = 1; i <= 4; i++){
+				arr.push(Math.round(Math.random() * 99) + 1);
+			}*/
+			//var temp = Math.round(Math.random() * (arr.length - 2)) + 1; 
+			//arr.splice(temp,temp - 1,winningNumber);
+			//$('#body1').find('#gameInfo').text("The answer is one of these numbers: " + arr +);
+		//}
+	}
+
 	function playAgain(){
 		winningNumber = generateWinningNumber();
 		guessesRemaining = 5;
 		if(gameWin === false) {
-			$('#body1').find('label').text("A new game has been started! You have " + guessesRemaining + " guesses remaining.");
+			$('#body1').find('#gameInfo').text("A new game has been started!");
+			$('#body1').find('#guessesRemain').text("You have " + guessesRemaining + " guesses remaining.");
 		}
 	}
-	/* **** Global Variables **** 
-	// try to elminate these global variables in your project, these are here just to start.
-
-
-	// **** Guessing Game Functions **** 
-
-	
-	// Fetch the Players Guess
-
-	
-
-	// Determine if the next guess should be a lower or higher number
-
-
-
-	// Check if the Player's Guess is the winning number 
-
-
-	// Create a provide hint button that provides additional clues to the "Player"
-
-	function provideHint(){
-		// add code here
-	}
-
-	/* **** Event Listeners/Handlers ****  */
 
 });
 
