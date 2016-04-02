@@ -38,7 +38,7 @@ $( document ).ready(function() {
 				playAgain();
 			}
 			else {
-				$('#body1').find('#gameInfo').text(winningNumber + " " + lowerOrHigher(playerGuess));
+				$('#body1').find('#gameInfo').text(lowerOrHigher(playerGuess));
 				showGuessesRemaining();
 			}
 		}
